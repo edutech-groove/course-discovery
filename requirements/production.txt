@@ -3,7 +3,7 @@
 
 certifi==2016.9.26
 django-ses==0.8.1
-gevent==1.1.2
+gevent
 gunicorn==19.6.0
 mysqlclient
 newrelic==4.8.0.110

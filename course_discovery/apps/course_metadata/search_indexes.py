@@ -23,7 +23,8 @@ BASE_PROGRAM_FIELDS = (
     'text',
     'title',
     'type',
-    'uuid'
+    'uuid',
+    'course_count',
 )
 
 # http://django-haystack.readthedocs.io/en/v2.5.0/boost.html#field-boost
@@ -339,8 +340,8 @@ class ProgramIndex(BaseIndex, indexes.Indexable, OrganizationsMixin):
             return []
         return [degree.search_card_ranking, degree.search_card_cost, degree.search_card_courses]
 
-    def prepare_course_uuids(self, obj):
-        return 3
+    def prepare_course_count(self, obj):
+        return len(obj.courses.all())
 
 
 class PersonIndex(BaseIndex, indexes.Indexable):

@@ -305,6 +305,7 @@ class ProgramIndex(BaseIndex, indexes.Indexable, OrganizationsMixin):
     is_program_eligible_for_one_click_purchase = indexes.BooleanField(
         model_attr='is_program_eligible_for_one_click_purchase', null=False
     )
+    course_count = indexes.IntegerField(null=True)
 
     def prepare_aggregation_key(self, obj):
         return 'program:{}'.format(obj.uuid)
@@ -337,6 +338,9 @@ class ProgramIndex(BaseIndex, indexes.Indexable, OrganizationsMixin):
 
             return []
         return [degree.search_card_ranking, degree.search_card_cost, degree.search_card_courses]
+
+    def prepare_course_uuids(self, obj):
+        return 3
 
 
 class PersonIndex(BaseIndex, indexes.Indexable):

@@ -569,7 +569,7 @@ class MinimalCourseRunSerializer(TimestampModelSerializer):
     class Meta:
         model = CourseRun
         fields = ('key', 'uuid', 'title', 'image', 'short_description', 'marketing_url', 'seats',
-                  'start', 'end', 'enrollment_start', 'enrollment_end', 'pacing_type', 'type', 'status',)
+                  'start', 'end', 'enrollment_start', 'enrollment_end', 'pacing_type', 'type', 'status', , 'min_effort', 'max_effort', 'weeks_to_complete',)
 
     def get_marketing_url(self, obj):
         include_archived = self.context.get('include_archived')
